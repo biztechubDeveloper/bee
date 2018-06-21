@@ -349,7 +349,7 @@ function comet_default_comment_form( $default_info ){
   function biztechub_custom_header($wp_customize){
 
 	$wp_customize ->add_section('header_section', array(
-		'title' =>__('Top Header Map','biztechub'),
+		'title' =>__('Top Header Part','biztechub'),
 		'priority' =>10
 	));
 
@@ -433,6 +433,34 @@ function comet_default_comment_form( $default_info ){
 		'label' =>__('pinterest link','biztechub'),
 		'type' => 'text'
 	));
+
+	//logo part
+
+
+	$wp_customize->add_section(
+		// $id
+		'sk_section_home_top',
+		// $args
+		array(
+			'title'			=> __( 'Home Top', 'theme-slug' ),
+			// 'description'	=> __( 'Some description for the options in the Home Top section', 'theme-slug' ),
+			'active_callback' => 'is_front_page',
+		)
+	);
+
+	/**
+	 * Add 'Home Top Background Image' Setting.
+	 */
+	$wp_customize->add_setting(
+		// $id
+		'sk_home_top_background_image',
+		// $args
+		array(
+			'default'		=> get_stylesheet_directory_uri() . '/images/minimography_005_orig.jpg',
+			'sanitize_callback'	=> 'esc_url_raw',
+			'transport'		=> 'postMessage'
+		)
+	);
 
   }
 add_action('customize_register','biztechub_custom_header');
