@@ -1,0 +1,119 @@
+ul li{
+	float:left;
+	padding:4px;
+
+}
+ul li a{
+	text-decoration: none;
+}
+/*menu css code*/
+
+.heading-title{
+	text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.aboutpara{
+  margin-top: -37px;
+  text-align: center;
+}
+.para{
+	text-align: center;
+}
+.line{
+	width: 10%;
+	color:#ed0404;
+}
+.video{
+	margin-left: 25px;
+
+}
+.font{
+	text-align: center;
+	font-size: 50px;
+	color:red;
+	margin-bottom:10px;
+}
+.ser-title{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.ser-para{
+	text-align: center;
+}
+.test-title{
+	text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    color:#FFFFFF;
+}
+.imgcircale{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 7% !important;
+	border-radius: 50%;
+}
+.center{
+	text-align: center;
+}
+.degination{
+	color:#FFFFFF;
+  margin-top: 100px;
+}
+
+.partner-image{
+  width:80%;
+  height: auto;
+}
+.imgcircales{
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80% !important;
+  border-radius: 50%;
+}
+.part-wr{
+  text-align: center;
+  margin-top: 8px;
+  color:#D65050;
+
+}
+.social-color{
+  padding:20px;
+}
+.bootam{
+ 
+  margin-top:100px;
+  margin-bottom: 50px;
+}
+.heading-title{
+    margin-bottom: 70px;
+}
+.social-section{
+  margin-top:80px;
+}
+.footer{
+  margin-top: 70px;
+}
+.widget-titles{
+  text-align: center;
+}
+.widget-content{
+  text-align: center;
+}
+.bc-color{
+  padding: 10px;
+  background-color: #36465d;
+  color:#FFFFFF;
+  margin-top: 150px;
+}
