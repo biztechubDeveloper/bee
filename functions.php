@@ -92,7 +92,7 @@ if ( ! function_exists( 'biztechub_setup' ) ) :
 	   // Services part
 	   register_post_type('our-services', array(
         'labels'   => array(
-			'name'  =>_x('Services','biztechub'),
+			'name'  =>__('Services','biztechub'),
 			'add_new' => __('Added new Service', 'biztechub'),
 			'add_new_item' => __('Added new Service', 'biztechub'),
 
@@ -106,7 +106,7 @@ if ( ! function_exists( 'biztechub_setup' ) ) :
 	   
 	   register_post_type('testi-monial', array(
         'labels'   => array(
-			'name'  =>_x('Testimonial','biztechub'),
+			'name'  =>__('Testimonial','biztechub'),
 			'add_new' => __('Added new Testimonial', 'biztechub'),
 			'add_new_item' => __('Added new Testimonial', 'biztechub'),
 
@@ -118,14 +118,14 @@ if ( ! function_exists( 'biztechub_setup' ) ) :
 	// partner part
 	register_post_type('partner-part', array(
         'labels'   => array(
-			'name'  =>_x('Partner','biztechub'),
+			'name'  =>__('Partner','biztechub'),
 			'add_new' => __('Added new Partner', 'biztechub'),
 			'add_new_item' => __('Added new Partner', 'biztechub'),
 
 		),
 		'public'  => true,
 		'menu_icon'   => 'dashicons-testimonial',
-		'supports' => array('title', 'editor','thumbnail')
+		'supports' => array('title','thumbnail')
 	   ));
 	}
 
@@ -248,12 +248,18 @@ require get_template_directory() . '/inc/shortcodes.php';
  */
  require get_template_directory() . '/inc/settingapi.php';
 
+ /**
+ * Load tgmpa plugin require
+ */
+require get_template_directory() . '/lib/example.php';
+
 /**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
 
 /**
  * comments file change
@@ -434,33 +440,58 @@ function comet_default_comment_form( $default_info ){
 		'type' => 'text'
 	));
 
-	//logo part
-
-
-	$wp_customize->add_section(
-		// $id
-		'sk_section_home_top',
-		// $args
-		array(
-			'title'			=> __( 'Home Top', 'theme-slug' ),
-			// 'description'	=> __( 'Some description for the options in the Home Top section', 'theme-slug' ),
-			'active_callback' => 'is_front_page',
-		)
-	);
-
 	/**
-	 * Add 'Home Top Background Image' Setting.
+	 * logo part
 	 */
-	$wp_customize->add_setting(
-		// $id
-		'sk_home_top_background_image',
-		// $args
-		array(
-			'default'		=> get_stylesheet_directory_uri() . '/images/minimography_005_orig.jpg',
-			'sanitize_callback'	=> 'esc_url_raw',
-			'transport'		=> 'postMessage'
-		)
-	);
+	$wp_customize ->add_section('logo_section', array(
+		'title' =>__('Logo section','biztechub'),
+		'priority' =>10
+	));
 
+  $wp_customize ->add_setting('logo_image', array(
+   'default'  => '',
+   'transport' =>'refresh'
+  ));
+
+  $wp_customize -> add_control(
+     new WP_Customize_Image_Control($wp_customize,'logo_image',array(
+		 'label' => 'Logo Upload',
+		 'section' => 'logo_section',
+		 'settings' => 'logo_image'
+	 ))
+  );
   }
 add_action('customize_register','biztechub_custom_header');
+/**
+ * add meta boxes register 
+ */
+function biztechub_partner(){
+	add_meta_box(
+		'link-add',
+		esc_html__('Enter your link','biztechub'),
+		'biztechub_link_text',
+		'partner-part',
+		'normal'
+	);
+}
+
+ add_action('add_meta_boxes','biztechub_partner');
+
+ function biztechub_link_text($post){
+	 ?>
+	 <label for="link"></label>
+ <input type="text" id="link" name="biztechlink" class="regular-text" placeholder="Enter link" value="<?php echo get_post_meta($post->ID,'biztechlink',true); ?>">
+ <?php }
+
+ /**
+  * matabox save
+  */
+
+  add_action('save_post','biztechub_save_meta');
+
+  function biztechub_save_meta($post_id){
+	$new_meta_value = ( isset( $_POST['biztechlink'] ) ?  esc_url_raw( $_POST['biztechlink'] ) : '' );
+   update_post_meta($post_id,'biztechlink', $new_meta_value);
+  }
+
+  

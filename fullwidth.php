@@ -16,11 +16,6 @@ get_header();
 
            <?php endwhile;  ?>
 
-        
-         
-
-     
-
           <!-- Pagination -->
 
 

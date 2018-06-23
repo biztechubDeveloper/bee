@@ -48,7 +48,7 @@
         <div class="row"> 
              <div class="col-md-5"> 
                 <div class="logo-image"> 
-                   <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/Logo-Biztechub.png" alt=""></a>
+                   <a href="<?php home_url(); ?>"><img src="<?php echo get_theme_mod('logo_image'); ?>" alt=""></a>
                 </div>
                     
             </div>

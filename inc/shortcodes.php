@@ -260,43 +260,22 @@ function our_partners(){
 
     <div class="container-fluid">
      <div class="row"> 
+<?php $ourPartner = new WP_Query(array(
+'post_type' =>'partner-part',
+'posts_per_page' =>4
+));
 
+while($ourPartner -> have_posts()) : $ourPartner->the_post();
+?>
      <div class="col-md-3"> 
       <div class="partner-image"> 
-      <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/pex.jpeg" class="imgcircales" alt=""></a>
+      <a href="<?php echo esc_url(get_post_meta(get_the_ID(),'biztechlink',true)); ?>"><?php the_post_thumbnail('thumbnail', array('class' =>'imgcircales')); ?></a>
        <div class="part-wr"> 
-        <i>name of company</i>
+        <i><?php the_title(); ?></i>
       </div>
      </div>
      </div>
-
-     <div class="col-md-3"> 
-      <div class="partner-image"> 
-      <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/pex.jpeg" class="imgcircales"  alt=""></a>
-        <div class="part-wr"> 
-        <i>name of company</i>
-      </div>
-     </div>
-     </div>
-
-     <div class="col-md-3"> 
-      <div class="partner-image"> 
-      <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/pex.jpeg" class="imgcircales"  alt=""></a>
-        <div class="part-wr"> 
-        <i>name of company</i>
-      </div>
-     </div>
-     </div>
-
-     <div class="col-md-3"> 
-      <div class="partner-image"> 
-      <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/pex.jpeg" class="imgcircales"  alt=""></a>
-      <div class="part-wr"> 
-        <i>name of company</i>
-      </div>
-       
-     </div>
-     </div>
+<?php endwhile; ?>
 
      </div>
 
