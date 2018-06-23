@@ -463,7 +463,7 @@ function comet_default_comment_form( $default_info ){
   }
 add_action('customize_register','biztechub_custom_header');
 /**
- * add meta boxes register 
+ * add meta boxes register for link
  */
 function biztechub_partner(){
 	add_meta_box(
@@ -494,4 +494,17 @@ function biztechub_partner(){
    update_post_meta($post_id,'biztechlink', $new_meta_value);
   }
 
-  
+  /**
+   * add meta boxes use for icon
+   */
+  add_action('add_meta_boxes','biztechub_services_icon');
+
+  function biztechub_services_icon(){
+	  add_meta_box(
+	  'icon-add',
+	  esc_html('Enter your icon','biztechub'),
+	  'biztechub_icon_text',
+	  'our-services',
+	  'normal'
+	  );
+  }
