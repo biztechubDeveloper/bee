@@ -38,7 +38,9 @@
          'next_text' =>'old',
          'screen_reader_text' => ' ',
          
-          ) ); ?>
+          ) );
+          wp_link_pages();
+          ?>
         
 
         </div>

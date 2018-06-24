@@ -21,5 +21,8 @@
             </div>
 <?php wp_list_comments(array(
   'callback'  => 'biztechub_comment_style'
-)); ?>
+));
+paginate_comments_links();
+?>
+
 <?php comment_form(); ?>

@@ -104,7 +104,7 @@ if ( ! function_exists( 'biztechub_setup' ) ) :
 
 	   //Testimonial part
 	   
-	   register_post_type('About us', array(
+	   register_post_type('about-us', array(
         'labels'   => array(
 			'name'  =>__('About us','biztechub'),
 			'add_new' => __('Added new About', 'biztechub'),
@@ -710,4 +710,38 @@ function biztechub_partner(){
 	$new_meta = ( isset( $_POST['iconclass'] ) ?   $_POST['iconclass']  : '' );
 	
    update_post_meta($post_id,'iconclass', $new_meta);
+  }
+
+  /**
+   * video part link
+   */
+  function biztechub_video1(){
+	add_meta_box(
+		'video-add',
+		esc_html__('Enter your video link','biztechub'),
+		'biztechub_video_part',
+		'about-us',
+		'normal'
+	);
+}
+
+ add_action('add_meta_boxes','biztechub_video1');
+ function biztechub_video_part($post){
+   ?>
+  <label for="">video part</label>
+  <input type="text" name="video-part" classs="regular-text" placeholder="Enter your video link" value="<?php echo get_post_meta($post->ID,'video-part', true); ?>">
+   <?php
+
+ }
+
+ /**
+  * video part meta box save
+  */
+
+  add_action('save_post','biztech_video_part');
+
+  function biztech_video_part($post_id){
+	$video_meta = (isset($_POST['video-part'] ) ? $_POST['video-part'] : '');
+
+	  update_post_meta($post_id, 'video-part', $video_meta);
   }

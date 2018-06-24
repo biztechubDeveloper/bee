@@ -81,23 +81,31 @@ function about_video_part($attr, $content){
  ob_start(); ?>
    <section> 
     <div class="container"> 
+    <?php 
+      $aboutUs = new WP_Query(array(
+        'post_type' => 'about-us',
+        'posts_per_page' => 1
+      ));
+      while($aboutUs -> have_posts()) : $aboutUs->the_post();
+
+?>
     <div class="row">
 
      <div class="col-md-6"> 
         <div class="heading-title"> 
-          <h1>hi</h1>
+          <h1><?php the_title(); ?></h1>
           <hr class="line">
         </div>
-        <p class="aboutpara">hello</p>
+        <p class="aboutpara"><?php the_content(); ?></p>
      </div>
      <div class="col-md-6"> 
         <div class="video"> 
-            <iframe width="100%" height="313" src="<?php $veCo = get_option('biz-home-slider'); 
-               echo $veCo['video-content']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+        <iframe width="100%" height="313" src="<?php echo get_post_meta(get_the_ID(),'video-part',true); ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
         </div>
      </div>
      
     </div>
+  <?php endwhile; ?>
     </div>
  <hr>
    </section>
