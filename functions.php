@@ -104,16 +104,16 @@ if ( ! function_exists( 'biztechub_setup' ) ) :
 
 	   //Testimonial part
 	   
-	   register_post_type('testi-monial', array(
+	   register_post_type('About us', array(
         'labels'   => array(
-			'name'  =>__('Testimonial','biztechub'),
-			'add_new' => __('Added new Testimonial', 'biztechub'),
-			'add_new_item' => __('Added new Testimonial', 'biztechub'),
+			'name'  =>__('About us','biztechub'),
+			'add_new' => __('Added new About', 'biztechub'),
+			'add_new_item' => __('Added new About', 'biztechub'),
 
 		),
 		'public'  => true,
 		'menu_icon'   => 'dashicons-testimonial',
-		'supports' => array('title', 'editor','thumbnail')
+		'supports' => array('title', 'editor')
 	   ));
 	// partner part
 	register_post_type('partner-part', array(
@@ -460,6 +460,190 @@ function comet_default_comment_form( $default_info ){
 		 'settings' => 'logo_image'
 	 ))
   );
+
+  /**
+   * slider text part
+   */
+  $wp_customize ->add_section('slider-section', array(
+	'title' =>__('Slider part','biztechub'),
+	'priority' =>10
+   ));
+
+   $wp_customize ->add_setting('sliderheadingOne', array( //Slider heading one
+	'default'  => 'CEO of head company',
+	'transport' =>'postMessage'
+	));
+	
+	$wp_customize ->add_control('sliderheadingOne',array(
+		'section' => 'slider-section',
+		'label' =>__('Slider heading text','biztechub'),
+		'type' => 'text'
+	));
+
+	$wp_customize ->add_setting('slidersubtitle', array( //Slider subtitle part two
+		'default'  => 'Contrary to popular belief, Lorem Ipsum is not simply random text',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('slidersubtitle',array(
+		'section' => 'slider-section',
+		'label' =>__('Slider Subheading text','biztechub'),
+		'type' => 'text'
+	));
+
+	$wp_customize ->add_setting('sliderheadingtwo', array( //Slider heading two
+		'default'  => 'CEO of head company',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('sliderheadingtwo',array(
+		'section' => 'slider-section',
+		'label' =>__('Slider heading text','biztechub'),
+		'type' => 'text'
+	));
+
+	$wp_customize ->add_setting('sliderthree', array( //Slider subtitle two
+		'default'  => 'CEO of head company',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('sliderthree',array(
+		'section' => 'slider-section',
+		'label' =>__('Slider subheading text','biztechub'),
+		'type' => 'text'
+	));
+
+	$wp_customize ->add_setting('sliderfour', array( //Slider subtitle three
+		'default'  => 'CEO of head company',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('sliderfour',array(
+		'section' => 'slider-section',
+		'label' =>__('Slider subheading text','biztechub'),
+		'type' => 'text'
+	));
+
+	$wp_customize ->add_setting('sliderfive', array( //Slider subtitle four
+		'default'  => 'CEO of head company',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('sliderfive',array(
+		'section' => 'slider-section',
+		'label' =>__('Slider subheading text','biztechub'),
+		'type' => 'text'
+	));
+    /**
+	 * testimonial part
+	 */
+	$wp_customize ->add_section('testimonial', array(
+		'title' =>__('Testi Monial Part','biztechub'),
+		'priority' =>10
+	));
+	$wp_customize ->add_setting('image1', array(
+		'default'  => '',
+		'transport' =>'refresh'
+	   ));
+	 
+	   $wp_customize -> add_control(
+		  new WP_Customize_Image_Control($wp_customize,'image1',array(
+			  'label' => 'Logo Upload',
+			  'section' => 'testimonial',
+			  'settings' => 'image1'
+		  ))
+	   );
+
+    $wp_customize ->add_setting('test-text', array( //testimonial
+		'default'  => 'CEO of head company',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('test-text',array(
+		'section' => 'testimonial',
+		'label' =>__('Testimonial text','biztechub'),
+		'type' => 'text'
+	));
+
+	$wp_customize ->add_setting('test-text2', array( //testimonial
+		'default'  => 'CEO of head company',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('test-text2',array(
+		'section' => 'testimonial',
+		'label' =>__('Testimonial sub text','biztechub'),
+		'type' => 'text'
+	));
+
+	$wp_customize ->add_setting('image2', array(
+		'default'  => '',
+		'transport' =>'refresh'
+	   ));
+	 
+	   $wp_customize -> add_control(
+		  new WP_Customize_Image_Control($wp_customize,'image2',array(
+			  'label' => 'Logo Upload',
+			  'section' => 'testimonial',
+			  'settings' => 'image2'
+		  ))
+	   );
+
+	$wp_customize ->add_setting('test-text3', array( //testimonial
+		'default'  => 'CEO of head company',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('test-text3',array(
+		'section' => 'testimonial',
+		'label' =>__('Testimonial sub text','biztechub'),
+		'type' => 'text'
+	));
+	$wp_customize ->add_setting('test-text4', array( //testimonial
+		'default'  => 'CEO of head company',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('test-text4',array(
+		'section' => 'testimonial',
+		'label' =>__('Testimonial sub text','biztechub'),
+		'type' => 'text'
+	));
+
+
+	$wp_customize ->add_setting('image3', array(
+		'default'  => '',
+		'transport' =>'refresh'
+	   ));
+	 
+	   $wp_customize -> add_control(
+		  new WP_Customize_Image_Control($wp_customize,'image3',array(
+			  'label' => 'Logo Upload',
+			  'section' => 'testimonial',
+			  'settings' => 'image3'
+		  ))
+	   );
+
+	$wp_customize ->add_setting('test-text5', array( //testimonial
+		'default'  => 'CEO of head company',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('test-text5',array(
+		'section' => 'testimonial',
+		'label' =>__('Testimonial sub text','biztechub'),
+		'type' => 'text'
+	));
+	$wp_customize ->add_setting('test-text6', array( //testimonial
+		'default'  => 'CEO of head company',
+		'transport' =>'postMessage'
+	));
+
+	$wp_customize ->add_control('test-text6',array(
+		'section' => 'testimonial',
+		'label' =>__('Testimonial sub text','biztechub'),
+		'type' => 'text'
+	));
   }
 add_action('customize_register','biztechub_custom_header');
 /**
@@ -479,7 +663,7 @@ function biztechub_partner(){
 
  function biztechub_link_text($post){
 	 ?>
-	 <label for="link"></label>
+	 <label for="link">Enter link</label>
  <input type="text" id="link" name="biztechlink" class="regular-text" placeholder="Enter link" value="<?php echo get_post_meta($post->ID,'biztechlink',true); ?>">
  <?php }
 
@@ -497,14 +681,33 @@ function biztechub_partner(){
   /**
    * add meta boxes use for icon
    */
-  add_action('add_meta_boxes','biztechub_services_icon');
 
-  function biztechub_services_icon(){
-	  add_meta_box(
-	  'icon-add',
-	  esc_html('Enter your icon','biztechub'),
-	  'biztechub_icon_text',
-	  'our-services',
-	  'normal'
-	  );
+  function biztechub_partner1(){
+	add_meta_box(
+		'linkicon-add',
+		esc_html__('Enter your link','biztechub'),
+		'biztechub_link_text1',
+		'our-services',
+		'normal'
+	);
+}
+
+ add_action('add_meta_boxes','biztechub_partner1');
+
+ function biztechub_link_text1($post){
+	 ?>
+	 <label for="link">Enter link</label>
+ <input type="text" id="link" name="iconclass" class="regular-text" placeholder="Enter link" value="<?php echo get_post_meta($post->ID,'iconclass',true); ?>">
+ <?php }
+
+ /**
+  * matabox save
+  */
+
+  add_action('save_post','biztechub_save_meta1');
+
+  function biztechub_save_meta1($post_id){
+	$new_meta = ( isset( $_POST['iconclass'] ) ?   $_POST['iconclass']  : '' );
+	
+   update_post_meta($post_id,'iconclass', $new_meta);
   }

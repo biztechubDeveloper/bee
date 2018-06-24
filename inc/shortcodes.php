@@ -28,21 +28,24 @@ ob_start(); ?>
             <div class="carousel-item active">
               
               <div class="degination"> 
-               <h3><?php $sliHead = get_option('biz-home-slider'); 
-               echo $sliHead['slider-text']; 
-               ?></h3>
-               <i>
-               <?php $sliHead = get_option('biz-home-slider'); 
-               echo $sliHead['slider-head']; 
-               ?></i>
+               <h3><?php echo get_theme_mod( 'sliderheadingOne'); ?></h3>
+               <i><?php echo get_theme_mod( 'slidersubtitle'); ?></i>
               </div>
             </div>
 
             <div class="carousel-item">
              
               <div class="degination"> 
-               <h6>CEO of head company</h6>
-               <i>Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</i>
+              <h3><?php echo get_theme_mod( 'sliderheadingtwo'); ?></h3>
+               <i><?php echo get_theme_mod( 'sliderthree'); ?></i>
+              </div>
+            </div>
+
+             <div class="carousel-item">
+             
+              <div class="degination"> 
+               <h3><?php echo get_theme_mod( 'sliderfour'); ?></h3>
+               <i><?php echo get_theme_mod( 'sliderfive'); ?></i>
               </div>
             </div>
            
@@ -78,17 +81,14 @@ function about_video_part($attr, $content){
  ob_start(); ?>
    <section> 
     <div class="container"> 
-    <div class="row"> 
+    <div class="row">
+
      <div class="col-md-6"> 
         <div class="heading-title"> 
-          <h1><?php $aboutHe = get_option('biz-home-slider'); 
-               echo $aboutHe['about-heading']; 
-               ?></h1>
+          <h1>hi</h1>
           <hr class="line">
         </div>
-        <p class="aboutpara"><?php $abCo = get_option('biz-home-slider'); 
-               echo $abCo['about-content']; 
-               ?></p>
+        <p class="aboutpara">hello</p>
      </div>
      <div class="col-md-6"> 
         <div class="video"> 
@@ -96,6 +96,7 @@ function about_video_part($attr, $content){
                echo $veCo['video-content']; ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
         </div>
      </div>
+     
     </div>
     </div>
  <hr>
@@ -136,7 +137,7 @@ return $aboutVideo;
       <?php while($services -> have_posts() ) : $services -> the_post(); ?>
       <div class="col-md-4"> 
         <div class="font"> 
-           <i class="fab fa-android"></i>
+           <i class="<?php echo get_post_meta(get_the_ID(),'iconclass',true); ?>"></i>
         </div>
         <h6 class="ser-title"><?php the_title(); ?></h6>
         <p class="ser-para"><?php the_content(); ?></p>
@@ -180,45 +181,33 @@ return $aboutVideo;
   
           <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <div class="center">
-           <?php 
-           $testimo = new WP_Query(array(
-           'post_type' => 'testi-monial',
-           'posts_per_page' => 1,
-           'offset'         => 1
-
-           
-           ));
-           while($testimo-> have_posts() ) : $testimo-> the_post();
-           ?>
-
+            <div class="center"> 
             <div class="carousel-item active">
-             
-              <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive center-block d-block w-100 imgcircale')); ?>
+            <img class="d-block w-100 imgcircale" class="img-responsive center-block" src="<?php echo get_theme_mod('image1'); ?>" alt="">
+           
               <div class="degination"> 
-               <h6><?php the_title(); ?></h6>
-               <i><?php the_content(); ?></i>
+               <h6><?php echo get_theme_mod( 'test-text'); ?></h6>
+               <i><?php echo get_theme_mod( 'test-text2'); ?></i>
               </div>
             </div>
 
-           <?php endwhile; ?>
-           <?php 
-           $testimo = new WP_Query(array(
-           'post_type' => 'testi-monial',
-           'posts_per_page' => 5,
-           'offset'         =>2
-           
-           ));
-           while($testimo-> have_posts() ) : $testimo-> the_post();
-           ?>
-                  <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive center-block d-block w-100 imgcircale')); ?>
+            <div class="carousel-item">
+            <img class="d-block w-100 imgcircale" class="img-responsive center-block" src="<?php echo get_theme_mod('image2'); ?>" alt="">
               <div class="degination"> 
-               <h6><?php the_title(); ?></h6>
-               <i><?php the_content(); ?></i>
+              <h6><?php echo get_theme_mod( 'test-text3'); ?></h6>
+               <i><?php echo get_theme_mod( 'test-text4'); ?></i>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+            <img class="d-block w-100 imgcircale" class="img-responsive center-block" src="<?php echo get_theme_mod('image3'); ?>" alt="">
+              <div class="degination"> 
+              <h6><?php echo get_theme_mod( 'test-text5'); ?></h6>
+               <i><?php echo get_theme_mod( 'test-text6'); ?></i>
               </div>
             </div>
            
-            <?php endwhile; ?>
+          
 
           </div>
         </div>
@@ -227,6 +216,7 @@ return $aboutVideo;
          </div>
     </div>
  </div>
+ <hr >
    </section>
  <?php  
   $testiMonial = ob_get_clean();

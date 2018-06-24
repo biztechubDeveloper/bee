@@ -13,12 +13,7 @@ add_action('admin_init','theme_options_setting');
 function theme_options_setting(){
      register_setting('settings-slider-id','biz-home-slider');
 
-    add_settings_section('slider-section', 'Slider Heading text', 'section_home_slider','home-slider');
-
-    add_settings_field( 'slider-text', 'Heading text', 'biz_home_sliders','home-slider','slider-section');
-
-
-    add_settings_field( 'slider-head', 'Heading content', 'biz_home_text','home-slider','slider-section');
+  
 
  /**
  * add about us and video 
@@ -38,27 +33,7 @@ function theme_options_setting(){
 
 
 
-function section_home_slider(){
 
- echo "<p>Home slider</p>";
-}
-
-function biz_home_sliders(){
-    $homSliders = get_option('biz-home-slider');
-    $sliderCon = isset( $homSliders['slider-text']) ? $homSliders['slider-text'] : '';
-    ?>
-    <input type="text" class="regular-text" value="<?php echo $sliderCon; ?>" name="biz-home-slider[slider-text]">
-    <?php
-}
-
-
-function biz_home_text(){
-    $homSliders = get_option('biz-home-slider');
-    $sliderCon = isset($homSliders['slider-head']) ? $homSliders['slider-head'] : '';
-    ?>
-    <input type="text" value="<?php echo $sliderCon; ?>" class="regular-text" name="biz-home-slider[slider-head]">
-    <?php
-}
 
 /**
  * about us section callback function

@@ -46,6 +46,8 @@ function biztechub_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
+
+
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
