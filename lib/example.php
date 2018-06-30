@@ -74,11 +74,11 @@ function biztechub_register_required_plugins() {
 
 		// This is an example of how to include a plugin from an arbitrary external source in your theme.
 		array(
-			'name'         => 'TGM New Media Plugin', // The plugin name.
-			'slug'         => 'tgm-new-media-plugin', // The plugin slug (typically the folder name).
-			'source'       => 'https://s3.amazonaws.com/tgm/tgm-new-media-plugin.zip', // The plugin source.
+			'name'         => 'Biztch', // The plugin name.
+			'slug'         => 'biztch', // The plugin slug (typically the folder name).
+			'source'       => '#', // The plugin source.
 			'required'     => true, // If false, the plugin is only 'recommended' instead of required.
-			'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
+			'external_url' => '#', // If set, overrides default API URL and points to an external URL.
 		),
 
 		// This is an example of how to include a plugin from a GitHub repository in your theme.
@@ -91,11 +91,11 @@ function biztechub_register_required_plugins() {
 		),
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
-		array(
-			'name'      => 'BuddyPress',
-			'slug'      => 'buddypress',
-			'required'  => false,
-		),
+		// array(
+		// 	'name'      => 'Biztch',
+		// 	'slug'      => 'biztch',
+		// 	'required'  => false,
+		// ),
 
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -
 		// have WPSEO installed *or* WPSEO Premium. The slug would in that last case be different, i.e.

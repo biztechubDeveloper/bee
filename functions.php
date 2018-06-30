@@ -34,6 +34,7 @@ if ( ! function_exists( 'biztechub_setup' ) ) :
 		 * provide it for us.
 		 */
 		add_theme_support( 'title-tag' );
+		
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -88,47 +89,7 @@ if ( ! function_exists( 'biztechub_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
-        
-	   // Services part
-	   register_post_type('our-services', array(
-        'labels'   => array(
-			'name'  =>__('Services','biztechub'),
-			'add_new' => __('Added new Service', 'biztechub'),
-			'add_new_item' => __('Added new Service', 'biztechub'),
-
-		),
-		'public'  => true,
-		'menu_icon'   => 'dashicons-shield',
-		'supports' => array('title', 'editor')
-	   ));
-
-	   //Testimonial part
-	   
-	   register_post_type('about-us', array(
-        'labels'   => array(
-			'name'  =>__('About us','biztechub'),
-			'add_new' => __('Added new About', 'biztechub'),
-			'add_new_item' => __('Added new About', 'biztechub'),
-
-		),
-		'public'  => true,
-		'menu_icon'   => 'dashicons-testimonial',
-		'supports' => array('title', 'editor')
-	   ));
-	// partner part
-	register_post_type('partner-part', array(
-        'labels'   => array(
-			'name'  =>__('Partner','biztechub'),
-			'add_new' => __('Added new Partner', 'biztechub'),
-			'add_new_item' => __('Added new Partner', 'biztechub'),
-
-		),
-		'public'  => true,
-		'menu_icon'   => 'dashicons-testimonial',
-		'supports' => array('title','thumbnail')
-	   ));
-	}
-
+}
 endif;
 add_action( 'after_setup_theme', 'biztechub_setup' );
 
@@ -236,12 +197,6 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
-* Implement the shortcodes
-*/
-
-require get_template_directory() . '/inc/shortcodes.php';
 
 /**
  * Setting api Implement 
