@@ -10,7 +10,7 @@
 ?>
 <div class="card mb-4">
  <?php the_post_thumbnail(); ?>
-            <div class="card-body">
+            <div class="card-body" <?php post_class(); ?>>
               <h2 class="card-title"><?php the_title(); ?></h2>
               <p class="card-text"><?php echo wp_trim_words( get_the_content(), 50, ' ' )?></p>
               <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More &rarr;</a>

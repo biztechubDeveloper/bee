@@ -599,6 +599,44 @@ function comet_default_comment_form( $default_info ){
 		'label' =>__('Testimonial sub text','biztechub'),
 		'type' => 'text'
 	));
+
+	/**
+	 * section heading part
+	 */
+	$wp_customize ->add_section('section-header', array(
+		'title' =>__('Section header heading','biztechub'),
+		'priority' =>10
+	));
+	$wp_customize ->add_setting('servicesheading', array( // services part
+		'default'  => 'SERVICES US',
+		'transport' =>'postMessage'
+	));
+    $wp_customize ->add_control('servicesheading',array(
+		'section' => 'section-header',
+		'label' =>__('Testimonial sub text','biztechub'),
+		'type' => 'text'
+	));
+
+	$wp_customize ->add_setting('testsecheading', array( // testimonial part
+		'default'  => 'Tesiti monial part',
+		'transport' =>'postMessage'
+	));
+    $wp_customize ->add_control('testsecheading',array(
+		'section' => 'section-header',
+		'label' =>__('Testimonial sub text','biztechub'),
+		'type' => 'text'
+	));
+
+	$wp_customize ->add_setting('partnerheading', array( // our partner say
+		'default'  => 'Partner part heading',
+		'transport' =>'postMessage'
+	));
+    $wp_customize ->add_control('partnerheading',array(
+		'section' => 'section-header',
+		'label' =>__('Partner heading section sub text','biztechub'),
+		'type' => 'text'
+	));
+
   }
 add_action('customize_register','biztechub_custom_header');
 /**
